@@ -30,8 +30,8 @@ services:
             - MYSQL_PASSWORD=${DB_PASSWORD}
             - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
         volumes:
-            - bmsbackend-tracker-data:/var/lib/mysql
+            - bmsbackend-data:/var/lib/mysql
 
 
 volumes:
-    bmsbackend-tracker-data:
+    bmsbackend-data:
