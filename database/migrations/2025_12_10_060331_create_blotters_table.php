@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('blotters', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('complainant_id')->constrained(table: 'residents');
+            $table->foreignId('respondent_id')->constrained(table: 'residents');
+            $table->date("incident_date");
+            $table->longText("details");
+            $table->string("status");
             $table->timestamps();
         });
     }
