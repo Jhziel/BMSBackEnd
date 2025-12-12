@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("middle_name");
             $table->string("position");
             $table->date("term_start");
-            $table->date("term_end");
+            $table->date("term_end")->nullable();
             $table->integer("contact_number");
         });
     }
