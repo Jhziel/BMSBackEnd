@@ -1,24 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Blotter;
+use App\Http\Controllers\Controller;
+use App\Models\Finance;
 use Illuminate\Http\Request;
 
-class BlotterController extends Controller
+class FinanceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
     {
         //
     }
@@ -34,15 +27,7 @@ class BlotterController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Blotter $blotter)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Blotter $blotter)
+    public function show(Finance $finance)
     {
         //
     }
@@ -50,7 +35,7 @@ class BlotterController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blotter $blotter)
+    public function update(Request $request, Finance $finance)
     {
         //
     }
@@ -58,7 +43,7 @@ class BlotterController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blotter $blotter)
+    public function destroy(Finance $finance)
     {
         //
     }

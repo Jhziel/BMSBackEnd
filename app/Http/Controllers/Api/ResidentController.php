@@ -1,24 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Household;
+use App\Http\Controllers\Controller;
+use App\Models\Resident;
 use Illuminate\Http\Request;
 
-class HouseholdController extends Controller
+class ResidentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
     {
         //
     }
@@ -34,15 +27,7 @@ class HouseholdController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Household $household)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Household $household)
+    public function show(Resident $resident)
     {
         //
     }
@@ -50,7 +35,7 @@ class HouseholdController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Household $household)
+    public function update(Request $request, Resident $resident)
     {
         //
     }
@@ -58,7 +43,7 @@ class HouseholdController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Household $household)
+    public function destroy(Resident $resident)
     {
         //
     }

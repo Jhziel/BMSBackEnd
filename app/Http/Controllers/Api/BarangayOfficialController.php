@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\BarangayOfficial;
 use Illuminate\Http\Request;
 
@@ -11,14 +12,6 @@ class BarangayOfficialController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
     {
         //
     }
@@ -35,14 +28,6 @@ class BarangayOfficialController extends Controller
      * Display the specified resource.
      */
     public function show(BarangayOfficial $barangayOfficial)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(BarangayOfficial $barangayOfficial)
     {
         //
     }

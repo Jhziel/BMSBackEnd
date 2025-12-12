@@ -1,24 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Finance;
+use App\Http\Controllers\Controller;
+use App\Models\Asset;
 use Illuminate\Http\Request;
 
-class FinanceController extends Controller
+class AssetController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
     {
         //
     }
@@ -34,15 +27,7 @@ class FinanceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Finance $finance)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Finance $finance)
+    public function show(Asset $asset)
     {
         //
     }
@@ -50,7 +35,7 @@ class FinanceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Finance $finance)
+    public function update(Request $request, Asset $asset)
     {
         //
     }
@@ -58,7 +43,7 @@ class FinanceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Finance $finance)
+    public function destroy(Asset $asset)
     {
         //
     }
