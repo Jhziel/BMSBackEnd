@@ -9,4 +9,9 @@ class Household extends Model
 {
     /** @use HasFactory<\Database\Factories\HouseholdFactory> */
     use HasFactory;
+
+    public function residents()
+    {
+        return $this->hasMany(Resident::class);
+    }
 }

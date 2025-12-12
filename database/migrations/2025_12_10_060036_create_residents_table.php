@@ -20,7 +20,8 @@ return new class extends Migration
             $table->date("birthdate");
             $table->string("gender");
             $table->string("civil_status");
-            $table->integer("contact_number");
+            $table->string("voter_status");
+            $table->string("contact_number", 11);
             $table->timestamps();
         });
     }

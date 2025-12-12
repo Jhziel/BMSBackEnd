@@ -13,7 +13,9 @@ class ResidentController extends Controller
      */
     public function index()
     {
-        //
+        $residents = Resident::all();
+
+        return response()->json($residents, 200);
     }
 
     /**
@@ -21,7 +23,18 @@ class ResidentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'middle_name' => ['required'],
+            'birthdate' => ['required', 'date'],
+            'gender' => ['required'],
+            'civil_status' => ['required'],
+            'contact_number' => ['required'],
+        ]);
+        $validateData['household_id'] = $request->id;
+        $resident = Resident::create($validateData);
+        return response()->json($resident, 201);
     }
 
     /**
@@ -29,7 +42,7 @@ class ResidentController extends Controller
      */
     public function show(Resident $resident)
     {
-        //
+        return response()->json($resident, 200);
     }
 
     /**
@@ -37,7 +50,19 @@ class ResidentController extends Controller
      */
     public function update(Request $request, Resident $resident)
     {
-        //
+        $validateData = $request->validate([
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'middle_name' => ['required'],
+            'birthdate' => ['required', 'date'],
+            'gender' => ['required'],
+            'civil_status' => ['required'],
+            'contact_number' => ['required'],
+        ]);
+        $validateData['household_id'] = $request->id;
+        $resident->update($validateData);
+
+        return response()->json($resident, 200);
     }
 
     /**
@@ -45,6 +70,8 @@ class ResidentController extends Controller
      */
     public function destroy(Resident $resident)
     {
-        //
+        $resident->delete();
+
+        return response()->noContent();
     }
 }

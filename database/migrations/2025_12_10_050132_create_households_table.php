@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('households', function (Blueprint $table) {
             $table->id();
+            $table->string('house_number');
+            $table->string('street');
+            $table->string('purok');
+            $table->string('zone');
             $table->timestamps();
         });
     }
