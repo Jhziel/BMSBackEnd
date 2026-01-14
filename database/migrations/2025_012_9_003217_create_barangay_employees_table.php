@@ -11,18 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barangay_officials', function (Blueprint $table) {
+        Schema::create('barangay_employees', function (Blueprint $table) {
             $table->id();
             $table->string("first_name");
             $table->string("last_name");
             $table->string("middle_name");
+            $table->date("birthdate");
             $table->string("gender");
+            $table->string('job_title');
+            $table->string('employment_type');
             $table->string("civil_status");
             $table->string("contact_number", 11);
-            $table->string("position");
-            $table->date("birthdate");
-            $table->date("term_start");
-            $table->date("term_end")->nullable();
+            $table->string("citizenship");
+            $table->string("religion");
+            $table->string('status');
+            $table->date('hired_at');
             $table->timestamps();
         });
     }
@@ -32,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('barangay_officials');
+        Schema::dropIfExists('barangay_employees');
     }
 };

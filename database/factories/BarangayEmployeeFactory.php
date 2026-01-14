@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\BarangayOfficial>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\BarangayEmployee>
  */
-class BarangayOfficialFactory extends Factory
+class BarangayEmployeeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -21,8 +21,6 @@ class BarangayOfficialFactory extends Factory
             'last_name' => fake()->lastName(),
             'middle_name' => fake()->lastName(),
             'birthdate' => fake()->date(),
-            'term_start' => fake()->date(),
-            'term_end' => fake()->date(),
             'gender' => fake()->randomElement(['Male', 'Female']),
             'civil_status' => fake()->randomElement([
                 'Single',
@@ -30,15 +28,13 @@ class BarangayOfficialFactory extends Factory
                 'Divorced',
                 'Widowed'
             ]),
-            'position' => fake()->randomElement([
-                'Barangay Kagawad',
-                'SK Chairperson',
-                'Barangay Secretary',
-                'SK Kagawad',
-                'Lupon Member'
-            ]),
+            'job_title' => fake()->jobTitle(),
+            'status' => fake()->randomElement(['Active', 'Inactive']),
             'contact_number' => fake()->numerify('09#########'),
-
+            'employment_type' => fake()->randomElement(['Full-Time', 'Part-Time']),
+            'citizenship' => "Filipino",
+            'religion' => fake()->randomElement(['Roman Catholic', 'Iglesia ni Cristo', 'Islam']),
+            'hired_at' => fake()->date(),
         ];
     }
 }

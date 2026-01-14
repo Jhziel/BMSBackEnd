@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -42,11 +43,12 @@ class AuthController extends Controller
 
         $user = User::where('email', $request->email)->first();
 
-        if (!$user || !Hash::check($request->password, $user->password)) {
-            return [
-                'message' => 'The credentials do not match'
-            ];
+        if (! $user || ! Hash::check($validatedData['password'], $user->password)) {
+            throw ValidationException::withMessages([
+                'email' => ['The credentials do not match our records.'],
+            ]);
         }
+
 
         $token = $user->createToken($user->name);
 

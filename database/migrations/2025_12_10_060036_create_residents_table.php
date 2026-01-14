@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('residents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('household_id')->constrained();
             $table->string("first_name");
             $table->string("last_name");
             $table->string("middle_name");
@@ -22,6 +21,9 @@ return new class extends Migration
             $table->string("civil_status");
             $table->string("voter_status");
             $table->string("contact_number", 11);
+            $table->string("occupation");
+            $table->string("citizenship");
+            $table->string("religion");
             $table->timestamps();
         });
     }

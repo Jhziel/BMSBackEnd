@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Resident extends Model
+class BarangayEmployee extends Model
 {
-    /** @use HasFactory<\Database\Factories\ResidentFactory> */
+    /** @use HasFactory<\Database\Factories\BarangayEmployeeFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -16,16 +16,18 @@ class Resident extends Model
         'middle_name',
         'birthdate',
         'gender',
+        'job_title',
+        'employment_type',
         'civil_status',
-        'voter_status',
         'contact_number',
-        'occupation',
         'citizenship',
         'religion',
+        'status',
+        'hired_at'
     ];
 
-    public function house_hold()
+    public function assets()
     {
-        return $this->belongsTo(Household::class);
+        return $this->hasMany(Asset::class);
     }
 }
