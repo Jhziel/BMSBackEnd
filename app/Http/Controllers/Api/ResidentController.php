@@ -13,7 +13,8 @@ class ResidentController extends Controller
      */
     public function index()
     {
-        $residents = Resident::all();
+        $residents = Resident::orderBy('created_at', 'desc')->get();
+
 
         return response()->json($residents, 200);
     }
@@ -29,10 +30,14 @@ class ResidentController extends Controller
             'middle_name' => ['required'],
             'birthdate' => ['required', 'date'],
             'gender' => ['required'],
+            'voter_status' => ['required'],
             'civil_status' => ['required'],
-            'contact_number' => ['required'],
+            'occupation' => ['required'],
+            'citizenship' => ['required'],
+            'religion' => ['required'],
+            'contact_number' => ['required', 'unique:residents', 'size:11'],
         ]);
-        $validateData['household_id'] = $request->id;
+
         $resident = Resident::create($validateData);
         return response()->json($resident, 201);
     }
@@ -56,10 +61,14 @@ class ResidentController extends Controller
             'middle_name' => ['required'],
             'birthdate' => ['required', 'date'],
             'gender' => ['required'],
+            'voter_status' => ['required'],
             'civil_status' => ['required'],
             'contact_number' => ['required'],
+            'occupation' => ['required'],
+            'citizenship' => ['required'],
+            'religion' => ['required'],
         ]);
-        $validateData['household_id'] = $request->id;
+
         $resident->update($validateData);
 
         return response()->json($resident, 200);

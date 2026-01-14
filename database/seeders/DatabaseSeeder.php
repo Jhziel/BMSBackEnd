@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\BarangayEmployee;
+use App\Models\BarangayOfficial;
+use App\Models\Resident;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,8 +21,13 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'John doe',
+            'email' => 'john@gmail.com',
+            'password' => bcrypt('12345678'),
         ]);
+
+        Resident::factory(15)->create();
+        BarangayEmployee::factory(10)->create();
+        BarangayOfficial::factory(10)->create();
     }
 }

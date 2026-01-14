@@ -13,7 +13,8 @@ class BarangayOfficialController extends Controller
      */
     public function index()
     {
-        //
+        $barangayOfficials = BarangayOfficial::orderBy('created_at', 'desc')->get();
+        return response()->json($barangayOfficials, 200);
     }
 
     /**
@@ -21,7 +22,22 @@ class BarangayOfficialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'middle_name' => ['required'],
+            'birthdate' => ['required', 'date'],
+            'term_start' => ['required', 'date'],
+            'term_end' => ['required', 'date'],
+            'gender' => ['required'],
+            'position' => ['required'],
+            'civil_status' => ['required'],
+            'contact_number' => ['required', 'unique:residents', 'size:11'],
+
+        ]);
+
+        $barangay_official = BarangayOfficial::create($validatedData);
+        return response()->json($barangay_official, 201);
     }
 
     /**
