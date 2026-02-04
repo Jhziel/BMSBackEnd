@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AssetController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BarangayEmployeeController;
 use App\Http\Controllers\Api\BarangayOfficialController;
@@ -17,6 +18,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('/house-hold', ResidentController::class);
     Route::apiResource('/barangay-employees', BarangayEmployeeController::class);
     Route::apiResource('/barangay-officials', BarangayOfficialController::class);
+    Route::apiResource('/assets', AssetController::class);
     Route::post('/logout', [AuthController::class, 'logout']);
 
     Route::get('/user', function (Request $request) {

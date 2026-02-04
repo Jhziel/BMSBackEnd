@@ -56,7 +56,25 @@ class BarangayEmployeeController extends Controller
      */
     public function update(Request $request, BarangayEmployee $barangayEmployee)
     {
-        //
+        $validateData = $request->validate([
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'middle_name' => ['required'],
+            'birthdate' => ['required', 'date'],
+            'gender' => ['required'],
+            'job_title' => ['required'],
+            'employment_type' => ['required'],
+            'civil_status' => ['required'],
+            'contact_number' => ['required', 'size:11'],
+            'citizenship' => ['required'],
+            'religion' => ['required'],
+            'status' => ['required'],
+            'hired_at' => ['required', 'date'],
+        ]);
+
+        $barangayEmployee->update($validateData);
+
+        return response()->json($barangayEmployee, 200);
     }
 
     /**
@@ -64,6 +82,8 @@ class BarangayEmployeeController extends Controller
      */
     public function destroy(BarangayEmployee $barangayEmployee)
     {
-        //
+        $barangayEmployee->delete();
+
+        return response()->noContent();
     }
 }

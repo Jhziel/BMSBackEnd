@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Asset;
 use App\Models\BarangayEmployee;
 use App\Models\BarangayOfficial;
 use App\Models\Resident;
@@ -29,5 +30,6 @@ class DatabaseSeeder extends Seeder
         Resident::factory(15)->create();
         BarangayEmployee::factory(10)->create();
         BarangayOfficial::factory(10)->create();
+        Asset::factory(10)->create();
     }
 }

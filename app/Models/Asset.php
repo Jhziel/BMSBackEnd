@@ -19,7 +19,7 @@ class Asset extends Model
         'status',
     ];
 
-    public function barangay_employees()
+    public function barangayEmployee()
     {
         return $this->belongsTo(BarangayEmployee::class);
     }
