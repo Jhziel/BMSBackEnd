@@ -53,7 +53,22 @@ class BarangayOfficialController extends Controller
      */
     public function update(Request $request, BarangayOfficial $barangayOfficial)
     {
-        //
+        $validatedData = $request->validate([
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'middle_name' => ['required'],
+            'birthdate' => ['required', 'date'],
+            'term_start' => ['required', 'date'],
+            'term_end' => ['required', 'date'],
+            'gender' => ['required'],
+            'position' => ['required'],
+            'civil_status' => ['required'],
+            'contact_number' => ['required', 'unique:residents', 'size:11'],
+
+        ]);
+
+        $barangayOfficial->update($validatedData);
+        return response()->json($barangayOfficial, 200);
     }
 
     /**
@@ -61,6 +76,8 @@ class BarangayOfficialController extends Controller
      */
     public function destroy(BarangayOfficial $barangayOfficial)
     {
-        //
+        $barangayOfficial->delete();
+
+        return response()->noContent();
     }
 }

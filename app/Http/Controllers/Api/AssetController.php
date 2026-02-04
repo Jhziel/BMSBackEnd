@@ -13,7 +13,8 @@ class AssetController extends Controller
      */
     public function index()
     {
-        //
+        $assets = Asset::with('barangayEmployee')->orderBy('created_at', 'desc')->get();
+        return response()->json($assets, 200);
     }
 
     /**
@@ -21,7 +22,20 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'item_name' => ['required'],
+            'barangay_employee_id' => ['required', 'exists:barangay_employees,id'],
+            'type' => ['required'],
+            'serial_number' => ['required'],
+            'amount' => ['required'],
+            'status' => ['required'],
+        ]);
+
+        $asset = Asset::create($validatedData);
+
+        $asset->load('barangayEmployee');
+
+        return response()->json($asset, 201);
     }
 
     /**
@@ -37,7 +51,20 @@ class AssetController extends Controller
      */
     public function update(Request $request, Asset $asset)
     {
-        //
+        $validatedData = $request->validate([
+            'item_name' => ['required'],
+            'barangay_employee_id' => ['required', 'exists:barangay_employees,id'],
+            'type' => ['required'],
+            'serial_number' => ['required'],
+            'amount' => ['required'],
+            'status' => ['required'],
+        ]);
+
+        $asset->update($validatedData);
+
+        $asset->load('barangayEmployee');
+
+        return response()->json($asset, 201);
     }
 
     /**
@@ -45,6 +72,8 @@ class AssetController extends Controller
      */
     public function destroy(Asset $asset)
     {
-        //
+        $asset->delete();
+
+        return response()->noContent();
     }
 }
