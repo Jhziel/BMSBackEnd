@@ -36,8 +36,14 @@ class ResidentController extends Controller
             'citizenship' => ['required'],
             'religion' => ['required'],
             'contact_number' => ['required', 'unique:residents', 'size:11'],
+            'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif']
         ]);
         $validateData['barangay_code'] = "BG";
+
+        if ($request->hasFile('avatar')) {
+            $path = $request->file('avatar')->store('avatars', 'public');
+            $validateData['avatar'] = $path;
+        }
 
         $resident = Resident::create($validateData);
         return response()->json($resident, 201);

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string("occupation");
             $table->string("citizenship");
             $table->string("religion");
+            $table->string('avatar')->nullable();
             $table->timestamps();
         });
     }
