@@ -7,12 +7,11 @@ use App\Models\BarangayEmployee;
 use App\Models\BarangayOfficial;
 use App\Models\Resident;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
+
 
     /**
      * Seed the application's database.
@@ -27,6 +26,9 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
         ]);
 
+        $this->call([
+            ResidentCounterSeeder::class,
+        ]);
         Resident::factory(15)->create();
         BarangayEmployee::factory(10)->create();
         BarangayOfficial::factory(10)->create();

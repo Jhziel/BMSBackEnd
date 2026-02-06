@@ -17,6 +17,7 @@ class ResidentFactory extends Factory
     public function definition(): array
     {
         return [
+            'barangay_code' => 'BG',
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'middle_name' => fake()->lastName(),

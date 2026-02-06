@@ -37,6 +37,7 @@ class ResidentController extends Controller
             'religion' => ['required'],
             'contact_number' => ['required', 'unique:residents', 'size:11'],
         ]);
+        $validateData['barangay_code'] = "BG";
 
         $resident = Resident::create($validateData);
         return response()->json($resident, 201);
