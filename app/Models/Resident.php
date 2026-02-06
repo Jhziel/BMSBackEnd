@@ -5,11 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use PDO;
 
 class Resident extends Model
 {
     /** @use HasFactory<\Database\Factories\ResidentFactory> */
     use HasFactory;
+
+    protected $appends = ['avatar_url'];
 
     protected $fillable = [
         'resident_id',
@@ -25,6 +28,7 @@ class Resident extends Model
         'occupation',
         'citizenship',
         'religion',
+        'avatar',
     ];
 
     public function house_hold()
@@ -59,5 +63,10 @@ class Resident extends Model
                     $barangayCode . str_pad($newNumber, 5, '0', STR_PAD_LEFT);
             });
         });
+    }
+
+    public function getAvatarUrlAttribute()
+    {
+        return $this->avatar ? asset('storage/' . $this->avatar) : null;
     }
 }
