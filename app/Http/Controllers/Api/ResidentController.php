@@ -57,6 +57,7 @@ class ResidentController extends Controller
         return response()->json($resident, 200);
     }
 
+    //Im adding this remove later for testing purposes
     /**
      * Update the specified resource in storage.
      */
