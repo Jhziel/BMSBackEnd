@@ -25,6 +25,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'john@gmail.com',
             'password' => bcrypt('12345678'),
         ]);
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('12345678'),
+        ]);
 
         $this->call([
             ResidentCounterSeeder::class,
